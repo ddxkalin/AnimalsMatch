@@ -10,11 +10,28 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
 
   <ItemGroup>
     <ProjectReference Include="..\Pets.Data\Pets.Data.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Cats\Controllers\" />
+    <Folder Include="Areas\Cats\Data\" />
+    <Folder Include="Areas\Cats\Models\" />
+    <Folder Include="Areas\Cats\Views\" />
+    <Folder Include="Areas\Dogs\Controllers\" />
+    <Folder Include="Areas\Dogs\Data\" />
+    <Folder Include="Areas\Dogs\Models\" />
+    <Folder Include="Areas\Dogs\Views\" />
   </ItemGroup>
 
 </Project>
