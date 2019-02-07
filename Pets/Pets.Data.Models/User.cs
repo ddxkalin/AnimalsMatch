@@ -1,11 +1,12 @@
-﻿namespace Pets.Data.Models
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+namespace Pets.Data.Models
 {
     using Core;
     using Core.Enums;
     using Microsoft.AspNetCore.Identity;
     using System;
     using System.ComponentModel.DataAnnotations;
-    using Validation;
 
     public class User : IdentityUser
     {
@@ -15,10 +16,9 @@
         public string Name { get; set; }
 
         [Required]
-        [Location]
+        //[Location]
         public string Location { get; set; }
 
-        [Birthday]
         public DateTime Birthdate { get; set; }
 
         [Required]

@@ -1,4 +1,6 @@
-﻿namespace Pets.Data.Models
+﻿using Microsoft.VisualBasic;
+
+namespace Pets.Data.Models
 {
     using Core.Enums;
     using Core;
