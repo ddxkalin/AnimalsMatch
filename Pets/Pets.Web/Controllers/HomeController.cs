@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Pets.Web.Models;
-
-namespace Pets.Web.Controllers
+﻿namespace Pets.Web.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using System.Diagnostics;
+    using Web.Models;
+
     public class HomeController : Controller
     {
         public IActionResult Index()
