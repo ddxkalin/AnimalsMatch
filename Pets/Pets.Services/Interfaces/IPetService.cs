@@ -8,7 +8,7 @@
     {
         IEnumerable<PetListingServiceModel> GetAll();
         PetServiceModel GetById(int id);
-        PetServiceModel Create(Pet pet);
+        void Create(PetServiceModel pet);
         PetServiceModel Edit(Pet dog);
         void DeleteById(int id);
     }
