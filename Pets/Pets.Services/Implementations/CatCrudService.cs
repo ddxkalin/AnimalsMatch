@@ -1,25 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Pets.Data;
-using Pets.Data.Models.Cats;
-using Pets.Services.Interfaces;
-
-namespace Pets.Services.Implementations
+﻿namespace Pets.Services.Implementations
 {
-    public class CatCrudService : ICatCrudService
-    {
-        private readonly IPetsDbContext context;
+    using System.Linq;
+    using Pets.Data.Common.Models;
+    using Pets.Data.Common.Repositories;
+    using Pets.Services.Interfaces;
 
-        public CatCrudService(IPetsDbContext db)
+    public class CatCrudService<T> : ICatCrudService<T>
+        where T : BaseDeletableModel<string>
+    {
+        private IDeletableEntityRepository<T> data;
+
+        public CatCrudService(IDeletableEntityRepository<T> data)
         {
-            this.context = db;
+            this.data = data;
         }
 
-        public IQueryable<Cat> GetAll()
+        //private readonly IPetsDbContext context;
+
+        //public CatCrudService(IPetsDbContext db)
+        //{
+        //    this.context = db;
+        //}
+
+        public IQueryable<T> GetAll()
         {
-            return this.context.Cats.AsQueryable();
+            var result = this.data.All();
+
+            return result;
+
         }
 
         //public Cat Create(Cat cat)
