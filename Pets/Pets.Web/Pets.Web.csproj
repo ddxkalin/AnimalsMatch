@@ -8,21 +8,24 @@
 
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="RestSharp" Version="105.2.3" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Pets.Data.Models\Pets.Data.Models.csproj" />
     <ProjectReference Include="..\Pets.Data\Pets.Data.csproj" />
+    <ProjectReference Include="..\Pets.Services.Messaging\Pets.Services.Messaging.csproj" />
+    <ProjectReference Include="..\Pets.Services\Pets.Services.csproj" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Cats\Controllers\" />
     <Folder Include="Areas\Cats\Data\" />
