@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pets.Web", "Pets.Web\Pets.Web.csproj", "{A7FCB514-A107-48F4-9614-D4E7E332D1E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCBDA808-AB4B-4DFD-AD76-622F81AD4570} = {DCBDA808-AB4B-4DFD-AD76-622F81AD4570}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pets.Services", "Pets.Services\Pets.Services.csproj", "{EADC9C1C-806E-4AF2-87AF-1D56A376E267}"
 EndProject
@@ -21,9 +24,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{CF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7254AF83-4781-492F-BFE3-C11AC3B203D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Services.Messaging", "Pets.Services.Messaging\Pets.Services.Messaging.csproj", "{8659A7DC-5BE0-4390-BF02-5964364D07C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pets.Services.Messaging", "Pets.Services.Messaging\Pets.Services.Messaging.csproj", "{8659A7DC-5BE0-4390-BF02-5964364D07C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pets.Common", "Pets.Common\Pets.Common.csproj", "{EB0362C2-4B56-4075-BCD8-42A4F2F7B778}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pets.Common", "Pets.Common\Pets.Common.csproj", "{EB0362C2-4B56-4075-BCD8-42A4F2F7B778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

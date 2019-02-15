@@ -1,7 +1,4 @@
-﻿using Pets.Data.Models.Cats;
-using Pets.Services.Interfaces;
-
-namespace Pets.Web.Areas.Admin.Controllers
+﻿namespace Pets.Web.Areas.Admin.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -13,16 +10,19 @@ namespace Pets.Web.Areas.Admin.Controllers
     using Pets.Web.Areas.Admin.Controllers.Base;
     using Pets.Web.Areas.Admin.Models.Users;
     using Pets.Web.Models;
+    using Pets.Data.Models.Cats;
+    using Pets.Services.Interfaces;
+
 
     public class UsersController : EntityListController
     {
         private ApplicationUserManager<ApplicationUser> userManager;
         private ICatCrudService<Cat> catService;
 
-        public UsersController(ApplicationUserManager<ApplicationUser> userManager, ICrudService<Post> postService)
+        public UsersController(ApplicationUserManager<ApplicationUser> userManager, ICatCrudService<Cat> catService)
         {
             this.userManager = userManager;
-            this.postService = postService;
+            this.catService = catService;
         }
 
         [HttpGet]
@@ -90,7 +90,7 @@ namespace Pets.Web.Areas.Admin.Controllers
 
             IdentityResult result = await this.userManager.ActivateUserAsync(userId);
 
-            await this.postService.Restore(this.postService.GetAllWithDeleted().Where(p => p.UserId == userId));
+            await this.catService.Restore(this.catService.GetAllWithDeleted().Where(p => p.UserId == userId));
 
             this.AddAlert(true, "User account successfully activated");
 
@@ -109,7 +109,7 @@ namespace Pets.Web.Areas.Admin.Controllers
 
             IdentityResult result = await this.userManager.DeactivateUserAsync(userId);
 
-            await this.postService.Delete(this.postService.GetAllWithDeleted().Where(p => p.UserId == userId));
+            await this.catService.Delete(this.catService.GetAllWithDeleted().Where(p => p.UserId == userId));
 
             this.AddAlert(true, "User account successfully deactivated");
 
