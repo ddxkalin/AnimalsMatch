@@ -1,7 +1,6 @@
 ﻿namespace Pets.Services.Implementations.Cats
 {
     using Data;
-    using Data.Models;
     using Interfaces;
     using Models;
     using System.Collections.Generic;
@@ -45,7 +44,7 @@
 
             //this.db.SaveChanges();
         }
-
+        
         public void Give(int id)
         {
             if (!this.db.AdoptionCats.Any(c => c.Id == id))
@@ -58,7 +57,8 @@
 
             cat.IsRequested = false;
             cat.IsAdopted = true;
-            cat.Owner = owner;
+            //Todo: owner
+            //cat.Owner = owner;
 
           //  this.db.SaveChanges();
         }

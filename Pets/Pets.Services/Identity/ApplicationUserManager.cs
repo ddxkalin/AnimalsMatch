@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
@@ -25,6 +26,11 @@
             : base(store, optionsAccessor, passwordHasher, userValidators, passwordValidators, keyNormalizer, errors,
                 services, logger)
         {
+        }
+
+        public object GetUserId(ClaimsPrincipal user)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IdentityResult> ActivateUserAsync(string userId)

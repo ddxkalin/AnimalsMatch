@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="RestSharp" Version="106.6.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Pets.Data\Pets.Data.csproj" />
   </ItemGroup>
 

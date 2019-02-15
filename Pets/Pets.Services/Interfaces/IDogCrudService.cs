@@ -1,10 +1,10 @@
 ﻿namespace Pets.Services.Interfaces
 {
-    using System.Threading.Tasks;
     using System.Linq;
+    using System.Threading.Tasks;
     using Pets.Data.Common.Models;
 
-    public interface ICatCrudService<T> where T : BaseDeletableModel<string>
+    public interface IDogCrudService<T> where T : BaseDeletableModel<string>
     {
         IQueryable<T> GetAll();
         IQueryable<T> GetAllWithDeleted();
