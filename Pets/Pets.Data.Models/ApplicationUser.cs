@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Pets.Data.Common.Models;
-
-namespace Pets.Data.Models
+﻿namespace Pets.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+    using Pets.Data.Common.Models;
+    using Pets.Data.Models.Cats;
+
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()
@@ -38,6 +39,8 @@ namespace Pets.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; } =
             new List<IdentityUserLogin<string>>();
+
+        public virtual ICollection<Cat> Cats { get; set; } = new HashSet<Cat>();
     }
 }
 

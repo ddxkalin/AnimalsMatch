@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Pets.Data.Common.Models;
-using Pets.Data.Common.Repositories;
-
-namespace Pets.Data.Repositories
+﻿namespace Pets.Data.Repositories
 {
+    using System;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
+    using Pets.Data.Common.Models;
+    using Pets.Data.Common.Repositories;
+
     public class EfDeletableEntityRepository<TEntity> : EfRepository<TEntity>, IDeletableEntityRepository<TEntity>
         where TEntity : class, IDeletableEntity
     {
@@ -37,12 +35,12 @@ namespace Pets.Data.Repositories
             return entity;
         }
 
-        //public Task<TEntity> GetByIdWithDeletedAsync(params object[] id)
-        //{
-        //    var byIdPredicate = EfExpressionHelper.BuildByIdPredicate<TEntity>(this.Context, id);
+        public Task<TEntity> GetByIdWithDeletedAsync(params object[] id)
+        {
+            var byIdPredicate = EfExpressionHelper.BuildByIdPredicate<TEntity>(this.Context, id);
 
-        //    return this.AllWithDeleted().FirstOrDefaultAsync(byIdPredicate);
-        //}
+            return this.AllWithDeleted().FirstOrDefaultAsync(byIdPredicate);
+        }
 
         public void HardDelete(TEntity entity)
         {

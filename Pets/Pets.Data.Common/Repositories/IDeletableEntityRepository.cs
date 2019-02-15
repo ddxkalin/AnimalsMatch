@@ -11,7 +11,7 @@ namespace Pets.Data.Common.Repositories
 
         IQueryable<TEntity> AllAsNoTrackingWithDeleted();
 
-        //Task<TEntity> GetByIdWithDeletedAsync(params object[] id);
+        Task<TEntity> GetByIdWithDeletedAsync(params object[] id);
 
         void HardDelete(TEntity entity);
 
