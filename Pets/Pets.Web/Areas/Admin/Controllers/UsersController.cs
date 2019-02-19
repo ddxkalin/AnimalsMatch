@@ -81,39 +81,39 @@
         [HttpPost]
         [Route("admin/user/{userId}/activate")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ActivateUser(string userId)
+        public async Task<IActionResult> ActivateUser(string ownerId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (string.IsNullOrWhiteSpace(ownerId))
             {
                 return this.NotFound($"invalid user id");
             }
 
-            IdentityResult result = await this.userManager.ActivateUserAsync(userId);
+            IdentityResult result = await this.userManager.ActivateUserAsync(ownerId);
 
-            await this.catService.Restore(this.catService.GetAllWithDeleted().Where(p => p.UserId == userId));
+            await this.catService.Restore(this.catService.GetAllWithDeleted().Where(p => p.OwnerId == ownerId));
 
             this.AddAlert(true, "User account successfully activated");
 
-            return this.RedirectToAction("UserProfile", "Users", new { userId });
+            return this.RedirectToAction("UserProfile", "Users", new { ownerId });
         }
 
         [HttpPost]
         [Route("admin/user/{userId}/deactivate")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeactivateUser(string userId)
+        public async Task<IActionResult> DeactivateUser(string ownerId)
         {
-            if (string.IsNullOrWhiteSpace(userId))
+            if (string.IsNullOrWhiteSpace(ownerId))
             {
                 return this.NotFound($"invalid user id");
             }
 
-            IdentityResult result = await this.userManager.DeactivateUserAsync(userId);
+            IdentityResult result = await this.userManager.DeactivateUserAsync(ownerId);
 
-            await this.catService.Delete(this.catService.GetAllWithDeleted().Where(p => p.UserId == userId));
+            await this.catService.Delete(this.catService.GetAllWithDeleted().Where(p => p.OwnerId == ownerId));
 
             this.AddAlert(true, "User account successfully deactivated");
 
-            return this.RedirectToAction("UserProfile", "Users", new { userId });
+            return this.RedirectToAction("UserProfile", "Users", new { ownerId });
         }
     }
 }
