@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Pets.Data.Common.Models;
     using Pets.Data.Models.Cats;
+    using Pets.Data.Models.Dogs;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -41,6 +42,12 @@
             new List<IdentityUserLogin<string>>();
 
         public virtual ICollection<Cat> Cats { get; set; } = new HashSet<Cat>();
+
+        public virtual ICollection<AdoptionCat> AdoptionCats { get; set; } = new HashSet<AdoptionCat>();
+
+        public virtual ICollection<Dog> Dogs { get; set; } = new HashSet<Dog>();
+
+        public virtual ICollection<AdoptionDog> AdoptionDogs { get; set; } = new HashSet<AdoptionDog>();
     }
 }
 
