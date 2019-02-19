@@ -3,7 +3,7 @@
     using Models;
     using System.Collections.Generic;
 
-    public interface IAdoptionPetService
+    public interface IAdoptionPetService<T>
     {
         IEnumerable<AdoptionPetListingServiceModel> Requested();
         void Adopt(int id, string username);

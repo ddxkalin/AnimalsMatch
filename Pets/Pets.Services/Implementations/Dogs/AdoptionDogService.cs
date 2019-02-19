@@ -7,12 +7,12 @@
     using System.Linq;
     using Pets.Data.Common.Models;
 
-    public class AdoptionCatService<T> : IAdoptionPetService<T>
+    public class AdoptionDogService<T> : IAdoptionPetService<T>
         where T : BaseDeletableModel<string>
     {
         private readonly PetsDbContext db;
 
-        public AdoptionCatService(PetsDbContext db)
+        public AdoptionDogService(PetsDbContext db)
         {
             this.db = db;
         }
@@ -20,49 +20,51 @@
         public IEnumerable<AdoptionPetListingServiceModel> Requested()
         {
             // TODO: AutoMapper
-            var cats = this.db.AdoptionCats.Where(a => a.IsRequested);
+
+            var dogs = this.db.AdoptionDogs.Where(a => a.IsRequested);
             var result = new List<AdoptionPetListingServiceModel>();
-            foreach (var cat in cats)
+            
+            foreach (var dog in dogs)
             {
-                var tempCat = new AdoptionPetListingServiceModel();
+                var tempDog = new AdoptionPetListingServiceModel();
                 // TODO: add properties 
-                result.Add(tempCat);
+                result.Add(tempDog);
             }
             return result;
         }
 
         public void Adopt(int id, string username)
         {
-            var cat = this.db.AdoptionCats.FirstOrDefault(c => c.Id == id);
+            var dog = this.db.AdoptionDogs.FirstOrDefault(c => c.Id == id);
             //var user = this.db.Users.FirstOrDefault(u => u.UserName == username); TODO: Fix this
 
-            //if (cat == null || user == null || cat.OwnerId == user.Id)
+            //if (dog == null || user == null || dog.OwnerId == user.Id)
             //{
             //    // TODO: Exception
             //}
 
-            cat.IsRequested = true;
-            // cat.RequestedOwnerId = user.Id;
+            dog.IsRequested = true;
+            // dog.RequestedOwnerId = user.Id;
 
             //this.db.SaveChanges();
         }
-        
+
         public void Give(int id)
         {
-            if (!this.db.AdoptionCats.Any(c => c.Id == id))
+            if (!this.db.AdoptionDogs.Any(c => c.Id == id))
             {
                 // TODO: Exception
             }
 
-            var cat = this.db.AdoptionCats.FirstOrDefault(c => c.Id == id);
-           // var owner = this.db.Users.FirstOrDefault(u => u.Id == cat.RequestedOwnerId);
+            var dog = this.db.AdoptionDogs.FirstOrDefault(c => c.Id == id);
+            // var owner = this.db.Users.FirstOrDefault(u => u.Id == dog.RequestedOwnerId);
 
-            cat.IsRequested = false;
-            cat.IsAdopted = true;
+            dog.IsRequested = false;
+            dog.IsAdopted = true;
             //Todo: owner
-            //cat.Owner = owner;
+            //dog.Owner = owner;
 
-          //  this.db.SaveChanges();
+            //  this.db.SaveChanges();
         }
     }
 }
