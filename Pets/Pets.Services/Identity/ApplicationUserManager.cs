@@ -28,10 +28,10 @@
         {
         }
 
-        public object GetUserId(ClaimsPrincipal user)
-        {
-            throw new NotImplementedException();
-        }
+        //public object GetUserId(ClaimsPrincipal user)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<IdentityResult> ActivateUserAsync(string userId)
         {

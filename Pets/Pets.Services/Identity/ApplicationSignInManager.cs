@@ -1,4 +1,4 @@
-﻿namespace Pets.Services
+﻿namespace Pets.Services.Identity
 {
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
@@ -7,8 +7,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
-    using Pets.Data.Models;
-    using Pets.Services.Identity;
+    using Pets.Data.Models; 
 
     public class ApplicationSignInManager<TUser> : SignInManager<ApplicationUser>
         where TUser : ApplicationUser
@@ -19,10 +18,11 @@
             IUserClaimsPrincipalFactory<ApplicationUser> claimsFactory,
             IOptions<IdentityOptions> optionsAccessor,
             ILogger<SignInManager<ApplicationUser>> logger,
-            IAuthenticationSchemeProvider schemeProvider
-        )
+            IAuthenticationSchemeProvider schemeProvider)
+
         //TODO: Can't take 6 arguments dafuq?!
-            : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger, schemeProvider)
+
+        : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger, schemeProvider)
         {
         }
 
