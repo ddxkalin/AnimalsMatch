@@ -22,7 +22,7 @@
 
         //TODO: Can't take 6 arguments dafuq?!
 
-        : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger, schemeProvider)
+        : base(userManager, contextAccessor, claimsFactory, optionsAccessor, logger)
         {
         }
 
