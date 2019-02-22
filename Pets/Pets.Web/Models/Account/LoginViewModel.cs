@@ -1,4 +1,4 @@
-﻿namespace Pets.Web.Views.Account
+﻿namespace Pets.Web.Models.Account
 {
     using System.ComponentModel.DataAnnotations;
 

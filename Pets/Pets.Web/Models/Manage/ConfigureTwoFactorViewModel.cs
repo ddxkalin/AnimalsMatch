@@ -1,17 +1,13 @@
-﻿namespace Pets.Web.Views.Account
+﻿namespace Pets.Web.Models.Manage
 {
     using System.Collections.Generic;
 
     using Microsoft.AspNetCore.Mvc.Rendering;
 
-    public class SendCodeViewModel
+    public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }
 
         public ICollection<SelectListItem> Providers { get; set; }
-
-        public string ReturnUrl { get; set; }
-
-        public bool RememberMe { get; set; }
     }
 }
