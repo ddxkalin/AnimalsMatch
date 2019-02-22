@@ -1,4 +1,4 @@
-﻿namespace Pets.Web.Areas.Identity.Pages.Account.InputModels
+﻿namespace Pets.Web.Areas.Identity.Pages.Account
 {
     using System.ComponentModel.DataAnnotations;
 

@@ -1,4 +1,4 @@
-﻿namespace Pets.Web.Areas.Identity.Pages.Account.OutputModels
+﻿namespace Pets.Web.Areas.Identity.Pages.Account
 {
     public class ThankYouForRegisteringOutputModel
     {
