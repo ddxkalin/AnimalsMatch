@@ -7,7 +7,7 @@
     using Pets.Data.Common.Repositories;
     using Pets.Services.Interfaces;
 
-    public class DogCrudService<T> : ICatCrudService<T>
+    public class DogCrudService<T> : IDogCrudService<T>
         where T : BaseDeletableModel<string>
     {
         private IDeletableEntityRepository<T> data;
