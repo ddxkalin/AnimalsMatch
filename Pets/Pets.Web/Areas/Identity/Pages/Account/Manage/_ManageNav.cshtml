@@ -1,0 +1,58 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+@*<ul class="nav nav-pills nav-stacked">
+        <li class="@ManageNavPages.IndexNavClass(ViewContext)"><a asp-page="./Index">Profile</a></li>
+        <li class="@ManageNavPages.ChangePasswordNavClass(ViewContext)"><a id="change-password" asp-page="./ChangePassword">Password</a></li>
+        @if (hasExternalLogins)
+        {
+            <li class="@ManageNavPages.ExternalLoginsNavClass(ViewContext)"><a id="external-login" asp-page="./ExternalLogins">External logins</a></li>
+        }
+        <li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+        <li class="@ManageNavPages.PersonalDataNavClass(ViewContext)"><a asp-page="./PersonalData">Personal data</a></li>
+    </ul>*@
+
+<div class="row">
+    <div class="col-xs-12 col-sm-3">
+        <a asp-page="./Index">
+            <div class="widget user-profile-widget @ManageNavPages.IndexNavClass(ViewContext)">
+                <div class="widget-body">
+                    <i class="icon fa fa-user"></i>
+                    Profile
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+        <a id="change-password" asp-page="./ChangePassword">
+            <div class="widget user-profile-widget @ManageNavPages.ChangePasswordNavClass(ViewContext)">
+                <div class="widget-body">
+                    <i class="icon fa fa-lock"></i>
+                    Change password
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+        <a asp-page="./PersonalData">
+            <div class="widget user-profile-widget @ManageNavPages.PersonalDataNavClass(ViewContext)">
+                <div class="widget-body">
+                    <i class="icon fa fa-database"></i>
+                    Personal data
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+        <a asp-page="./ManagePosts">
+            <div class="widget user-profile-widget @ManageNavPages.ManagePostsNavClass(ViewContext)">
+                <div class="widget-body">
+                    <i class="icon fa fa-pencil"></i>
+                    My posts
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
