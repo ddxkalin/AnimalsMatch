@@ -1,4 +1,6 @@
-﻿namespace Pets.Web
+﻿using Pets.Web.Models.Account;
+
+namespace Pets.Web
 {
     using Data;
     using System.Reflection;
@@ -7,7 +9,6 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.UI;
     using Microsoft.AspNetCore.Identity.UI.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -27,7 +28,6 @@
     using Pets.Services.Implementations.Dogs;
     using Pets.Services.Interfaces;
     using Pets.Services.Messaging;
-    using Pets.Web.Views.Account;
 
     public class Startup
     {
